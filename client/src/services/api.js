@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // Central axios instance. Attaches the JWT to every request and
 // redirects to /login on a 401 (expired/invalid token).
-const api = axios.create({ baseURL: '/api' });
+export const API_ORIGIN = (import.meta.env.VITE_API_URL || '').replace(/\/$/, '');
+const api = axios.create({ baseURL: `${API_ORIGIN}/api` });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem('smartserve_token');

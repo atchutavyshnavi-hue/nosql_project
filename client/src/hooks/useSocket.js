@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
+import { API_ORIGIN } from '../services/api';
 
 // One shared socket per component tree. Connects lazily, joins/leaves
 // the given room automatically, and cleans up on unmount so switching
@@ -10,7 +11,7 @@ export default function useSocket(room, onEvent) {
   useEffect(() => {
     if (!room) return undefined;
 
-    const socket = io('/', { path: '/socket.io', transports: ['websocket', 'polling'] });
+    const socket = io(API_ORIGIN || '/', { path: '/socket.io', transports: ['websocket', 'polling'] });
     socketRef.current = socket;
 
     socket.on('connect', () => {

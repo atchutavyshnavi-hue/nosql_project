@@ -37,6 +37,7 @@ const registerGroupSocketBridge = require('./sockets/group.socket');
 const registerNotificationSocketBridge = require('./sockets/notification.socket');
 
 const app = express();
+app.set('trust proxy', 1);
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: { origin: process.env.CLIENT_URL || '*', credentials: true },
