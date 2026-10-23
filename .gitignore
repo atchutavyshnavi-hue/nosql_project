@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Secrets - never commit
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# Caches / temp
+.vite/
+coverage/
+tmp/
+*.tmp
+
+# Local database dumps
+dump.rdb
+*.rdb

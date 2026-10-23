@@ -1,0 +1,38 @@
+{
+  "name": "smartserve-server",
+  "version": "1.0.0",
+  "description": "SmartServe food ordering backend",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "worker:scheduled": "node workers/scheduledOrders.worker.js",
+    "worker:subscriptions": "node workers/subscriptions.worker.js",
+    "worker:cart": "node workers/cartExpiry.worker.js",
+    "worker:flashdeals": "node workers/flashDeals.worker.js",
+    "seed": "node utils/seed.js",
+    "sync": "node utils/backfill.js",
+    "fix:veg": "node utils/fixVeg.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.4.0",
+    "express-validator": "^7.2.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "monetdb": "^2.2.0",
+    "mongoose": "^8.6.0",
+    "morgan": "^1.10.0",
+    "neo4j-driver": "^5.24.0",
+    "node-cron": "^3.0.3",
+    "redis": "^4.7.0",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
